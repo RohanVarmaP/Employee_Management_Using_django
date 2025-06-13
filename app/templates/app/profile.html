@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Employee Profile</h2>
+    <ul>
+        <li><strong>ID:</strong> {{ profile.em_id }}</li>
+        <li><strong>Name:</strong> {{ profile.name }}</li>
+        <li><strong>Salary:</strong> {{ profile.salary }}</li>
+        <li><strong>Role:</strong> {{ profile.role.role_name }}</li>
+        <li><strong>Department:</strong> {{ profile.department.dept_name }}</li>
+        <li><strong>Reporting To:</strong> {{ profile.reporting_to }}</li>
+        <li><strong>Projects:</strong>
+            <ul>
+            {% for proj in profile.projects %}
+                <li>{{ proj.project_name }} ({{ proj.start_date }} - {{ proj.end_date }})</li>
+            {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
